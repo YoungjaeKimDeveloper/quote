@@ -11,6 +11,7 @@ const quoteSchema = new mongoose.Schema(
     content: {
       type: String,
       required: true,
+      minLength: 5,
       maxLength: 50,
     },
     category: {
@@ -28,4 +29,3 @@ const quoteSchema = new mongoose.Schema(
 );
 
 export const Quote = mongoose.model("Quote", quoteSchema);
-

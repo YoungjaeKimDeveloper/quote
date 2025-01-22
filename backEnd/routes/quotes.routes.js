@@ -1,13 +1,13 @@
 import express from "express";
 
 const router = express.Router();
-
+import { createQuote, updateQuote } from "../controllers/quote.controller.js";
 export default router;
 
 // Quote 만들어주기
 router.post("/createQuote", createQuote);
 // Quote 업데이트해주기
-// router.put("/updateQuote", updateQuote);
+router.put("/updateQuote/:quoteID", updateQuote);
 // // Quote 지워주기
 // router.delete("/updateQuote", deleteQuote);
 // // 전체 quote 갖다주기
