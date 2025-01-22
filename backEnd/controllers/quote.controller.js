@@ -59,3 +59,37 @@ export const updateQuote = async (req, res) => {
     });
   }
 };
+export const deleteQuote = async (req, res) => {
+  try {
+    const quoteID = req.params.quoteID;
+    const quote = await Quote.findById(quoteID);
+    if (!quote) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Cannot find the quote" });
+    }
+    if (quote.image) {
+      const publicID = quote.image.split("/").pop().split(".")[0];
+      try {
+        await cloudinary.uploader.destroy(publicID);
+        console.info("Image deleted");
+      } catch (error) {
+        console.error("Failed to delete image", error.message);
+      }
+    }
+    await quote.remove();
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: `ERROR IN [updateQuote] ${error.message}`,
+    });
+  }
+};
+
+const getQuotes = async (req, res) => {
+  try {
+    
+  } catch (error) {
+
+  }
+};
