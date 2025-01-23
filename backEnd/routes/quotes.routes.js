@@ -5,6 +5,10 @@ import {
   createQuote,
   updateQuote,
   deleteQuote,
+  getQuotes,
+  getSingleQuote,
+  getQuoteByCategory,
+  getQuoteByAuthor,
 } from "../controllers/quote.controller.js";
 export default router;
 
@@ -15,7 +19,10 @@ router.put("/updateQuote/:quoteID", updateQuote);
 // // Quote 지워주기
 router.delete("/updateQuote/:quoteID", deleteQuote);
 // // 전체 quote 갖다주기
-// router.get("/", getQuotes);
+router.get("/", getQuotes);
+// 개별로 갖다주기
+router.get("/:id", getSingleQuote);
 // // 카테고리 별로 Quote 갖다주기
-// router.get("/getQuote/:category", getQuoteByCategory);
-// router.get("/getQuote/:author", getQuoteByAuthor);
+router.get("/getQuote/:category", getQuoteByCategory);
+// 작자 별로 갖다주기
+router.get("/getQuote/:author", getQuoteByAuthor);
