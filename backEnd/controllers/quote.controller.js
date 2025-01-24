@@ -153,7 +153,7 @@ export const getQuoteByAuthor = async (req, res) => {
     const author = req.params.author;
     const quotes = await Quote.find({ author: author });
     if (!quotes) {
-      return res.status(404).jons({
+      return res.status(404).json({
         success: false,
         message: "Cannot find the quote with the author",
       });
