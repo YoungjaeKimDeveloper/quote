@@ -5,15 +5,15 @@ import { CircleArrowRight } from "lucide-react";
 const Card = ({ style }) => {
   return (
     <div>
-      <div className="flex flex-col items-center justify-center text-center pt-20 ">
+      <div className="flex flex-col items-center justify-center text-center pt-60 ">
         <div className="relative">
           <img
             src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
             alt="Shoes"
             className="aspect-[2/3] rounded-2xl w-[200px] md:w-[250px] "
           />
-          <CircleArrowRight className="text-2xl absolute right-[-50px] size-10 cursor-pointer top-[50%]" />
-          <CircleArrowLeft className="text-2xl absolute left-[-50px] size-10 cursor-pointer top-[50%]" />
+          <CircleArrowRight className="text-2xl absolute right-[-50px] size-10 cursor-pointer top-[50%]  opacity-50 duration-500 hover:opacity-100 " />
+          <CircleArrowLeft className="text-2xl absolute left-[-50px] size-10 cursor-pointer top-[50%] opacity-50 duration-500 hover:opacity-100" />
         </div>
       </div>
       {/* Text */}
