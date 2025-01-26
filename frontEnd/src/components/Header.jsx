@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { SquarePlus, House } from "lucide-react";
-const Header = () => {
+const Header = ({ text }) => {
   return (
     <div className="bg-white text-sm lg:text-2xl py-4 w-full h-[60px] flex items-center justify-evenly shadow-2xl text-center ">
       <div className="w-[60px]"></div>
       <Link to={"/"}>
         <h2 className="font-bold tracking-wider text-2xl text-center">
-          "오늘의 명언"
+          {text}
         </h2>
       </Link>
       <div className="flex gap-x-4 mr-2">

@@ -1,20 +1,28 @@
 import React from "react";
 import { Image } from "lucide-react";
+import Input from "../components/Input";
+import Category from "../components/Category";
 
 const CreatePage = () => {
   return (
-    <div className="flex flex-col items-center justify-center text-center pt-60 ">
-      <h1>새로운 명언 만들기</h1>
-      <form
-        action=""
-        className="flex flex-col  items-center justify-center bg-green-300"
-      >
-        <input type="text" placeholder="Author" />
-        <input type="text" placeholder="Content" />
+    <div className=" mt-10 lg:mt-30">
+      <form className="flex flex-col  items-center justify-center gap-y-10">
+        <Input text="Author" placeholder="Author" />
+        <Input text="Content" placeholder="오늘 하지 않으면 내일은 없다" />
         <label htmlFor="image">
           <input type="file" id="image" hidden />
-          <Image />
+          <Image
+            size="40"
+            className="duration-1000 hover:stroke-yellow-300 cursor-pointer"
+          />
         </label>
+        <Category />
+        <button
+          className="mt-5  w-1/2 p-4 rounded-2xl opacity-75 bg-white cursor-pointer duration-1000 hover:opacity-100"
+          type="submit"
+        >
+          나만의 명언 제작하기
+        </button>
       </form>
     </div>
   );

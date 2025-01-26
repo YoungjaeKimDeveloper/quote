@@ -8,7 +8,7 @@ import CreatePage from "./Pages/CreatePage";
 const App = () => {
   return (
     <div>
-      <Header />
+      <Header text="오늘의 명언" />
       <div className="bg-gradient-to-r from-white-500  to-red-500 w-full h-screen flex flex-col items-center ">
         <Routes>
           <Route path="/" element={<HomePage />} />
