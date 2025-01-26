@@ -6,7 +6,7 @@ const Header = ({ text }) => {
     <div className="bg-white text-sm lg:text-2xl py-4 w-full h-[60px] flex items-center justify-evenly shadow-2xl text-center ">
       <div className="w-[60px]"></div>
       <Link to={"/"}>
-        <h2 className="font-bold tracking-wider text-2xl text-center">
+        <h2 className="font-bold tracking-wider text-2xl text-center font-serif">
           {text}
         </h2>
       </Link>

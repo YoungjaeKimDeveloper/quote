@@ -1,16 +1,18 @@
 import React from "react";
 
-const Input = ({ text, placeholder }) => {
+const Input = ({ text, placeholder, target }) => {
   return (
     <div className="flex flex-col  items-start gap-y-5    ">
-      <label for="author">
-        <p className="font-bold text-xl md:text-2xl text-white">{text}</p>
+      <label htmlFor={target}>
+        <p className="font-bold text-xl md:text-2xl text-white font-serif">
+          {text}
+        </p>
       </label>
       <input
         type="text"
         placeholder={placeholder}
-        id="author"
-        className="w-[300px] h-[50px] bg-white  px-2 rounded-2xl  focus:outline-none"
+        id={target}
+        className="w-[300px] h-[50px] bg-white  px-2 rounded-2xl  focus:outline-none font-bold font-serif"
       />
     </div>
   );

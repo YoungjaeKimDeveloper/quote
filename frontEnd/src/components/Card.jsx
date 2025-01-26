@@ -5,7 +5,7 @@ import { CircleArrowRight } from "lucide-react";
 const Card = ({ style }) => {
   return (
     <div>
-      <div className="flex flex-col items-center justify-center text-center pt-60 ">
+      <div className="flex flex-col items-center justify-center text-center pt-40 ">
         <div className="relative">
           <img
             src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
