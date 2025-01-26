@@ -17,7 +17,7 @@ const quoteSchema = new mongoose.Schema(
     category: {
       type: String,
       required: true,
-      enum: ["exercise", "love", "life", "study"],
+      enum: ["운동", "사랑", "삶", "공부"],
       default: "life",
     },
     image: {

@@ -28,7 +28,7 @@ export const createQuote = async (req, res) => {
     console.error("ERROR IN [createQuote]", error.message);
     return res.status(500).json({
       success: false,
-      message: `ERROR IN [createQuote] ${error.message}`,
+      message: `ERROR IN - [createQuote] ${error.message}`,
     });
   }
 };
@@ -153,7 +153,7 @@ export const getQuoteByAuthor = async (req, res) => {
     const author = req.params.author;
     const quotes = await Quote.find({ author: author });
     if (!quotes) {
-      return res.status(404).json({
+      return res.status(404).jons({
         success: false,
         message: "Cannot find the quote with the author",
       });
@@ -163,7 +163,7 @@ export const getQuoteByAuthor = async (req, res) => {
     console.error("Error in [getQuoteByAuthor]", error.message);
     return res.status(500).json({
       success: false,
-      message: `ERROR IN [getQuoteByAuthor] ${error.message}`,
+      message: `ERROR IN [getQuoteByCategory] ${error.message}`,
     });
   }
 };

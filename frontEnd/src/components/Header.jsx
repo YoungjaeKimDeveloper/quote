@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { SquarePlus, House } from "lucide-react";
 const Header = ({ text }) => {
   return (
-    <div className="bg-white text-sm lg:text-2xl py-4 w-full h-[60px] flex items-center justify-evenly shadow-2xl text-center ">
+    <div className="bg-black text-white text-sm lg:text-2xl py-4 w-full h-[60px] flex items-center justify-evenly shadow-2xl text-center ">
       <div className="w-[60px]"></div>
       <Link to={"/"}>
         <h2 className="font-bold tracking-wider text-2xl text-center font-serif">
