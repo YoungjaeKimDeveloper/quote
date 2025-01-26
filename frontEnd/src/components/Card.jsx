@@ -1,25 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+import { Loader } from "lucide-react";
+
+import { useQuoteStore } from "../../store/quote.store";
 // Icons
 import { CircleArrowLeft } from "lucide-react";
 import { CircleArrowRight } from "lucide-react";
-const Card = ({ style }) => {
+
+const Card = ({ quotes, handleLeft, handleRight, currentIndex }) => {
+  const { isFetchingQuotes } = useQuoteStore();
+
   return (
     <div>
       <div className="flex flex-col items-center justify-center text-center pt-40 ">
         <div className="relative">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-            className="aspect-[2/3] rounded-2xl w-[200px] md:w-[250px] "
+          {isFetchingQuotes ? (
+            <div className="aspect-[2/3]  w-[200px] md:w-[250px]  bg-gray-200 rounded-2xl flex items-center justify-center">
+              <Loader className="animate-spin" />
+            </div>
+          ) : (
+            <img
+              src={quotes[currentIndex]?.image || "../assets/sample.jpg"}
+              alt="card-Image"
+              className="aspect-[2/3] rounded-2xl w-[200px] md:w-[250px] "
+            />
+          )}
+
+          <CircleArrowRight
+            className="text-2xl absolute right-[-50px] size-10 cursor-pointer top-[50%]  opacity-50 duration-500 hover:opacity-100 "
+            onClick={handleRight}
           />
-          <CircleArrowRight className="text-2xl absolute right-[-50px] size-10 cursor-pointer top-[50%]  opacity-50 duration-500 hover:opacity-100 " />
-          <CircleArrowLeft className="text-2xl absolute left-[-50px] size-10 cursor-pointer top-[50%] opacity-50 duration-500 hover:opacity-100" />
+          <CircleArrowLeft
+            className="text-2xl absolute left-[-50px] size-10 cursor-pointer top-[50%] opacity-50 duration-500 hover:opacity-100"
+            onClick={handleLeft}
+          />
         </div>
       </div>
       {/* Text */}
       <div className="text-center mt-10 flex-col space-y-2">
-        <h2 className="card-title font-semibold">Jeki</h2>
-        <p className="font-bold">"이기는 유일한 방법은 그만두지않는것이다"</p>
+        <h2 className="card-title font-semibold">
+          {quotes[currentIndex]?.author}
+        </h2>
+        <p className="font-bold">"{quotes[currentIndex]?.content}"</p>
       </div>
     </div>
   );

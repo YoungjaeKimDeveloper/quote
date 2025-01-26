@@ -4,6 +4,7 @@ import Input from "../components/Input";
 import Category from "../components/Category";
 import { useQuoteStore } from "../../store/quote.store";
 import { LoaderCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const CreatePage = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -36,6 +37,9 @@ const CreatePage = () => {
       image: "",
     });
     setErrorMessage(""); // 에러메세지 초기화
+    setTimeout(() => {
+      navigate("/");
+    }, [2000]);
   };
   const [newQuote, setNewQuote] = useState({
     author: "",
@@ -44,7 +48,6 @@ const CreatePage = () => {
     image: "",
   });
   // Tester
-  console.log(newQuote);
   // 최대한 Variable하게 해줘야함
   const handleInputChange = (target, value) => {
     setNewQuote((preQuote) => ({
@@ -67,6 +70,7 @@ const CreatePage = () => {
       reader.readAsDataURL(file); // 파일을 data URL (base64 문자열로 읽기)
     }
   };
+  const navigate = useNavigate();
   return (
     <div className=" mt-10 lg:mt-30">
       <form className="flex flex-col  items-center justify-center gap-y-10">

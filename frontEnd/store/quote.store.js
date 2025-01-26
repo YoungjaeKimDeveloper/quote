@@ -8,6 +8,7 @@ export const useQuoteStore = create((set) => ({
   createQuote_Error_message: "",
   // State - Loading
   creatingQuoteLoading: false,
+  isFetchingQuotes: false,
   // Functions
   createQuote: async (newQuote) => {
     const { author, content, category, image } = newQuote;
@@ -22,7 +23,7 @@ export const useQuoteStore = create((set) => ({
       // 기존에 있던 Qutoe 업데이트해주기
       if (res.data.success) {
         set((state) => ({ quotes: [...state.quotes, res.data.newQuote] }));
-        console.log("토스터가 여기에서 보야야함")
+
         toast.success("오늘의 명언 추가완료❤️");
         return { success: true, message: "Quote created successfully" };
       } else {
@@ -41,12 +42,30 @@ export const useQuoteStore = create((set) => ({
       set({ creatingQuoteLoading: false });
     }
   },
+  // 명언 불러오기
   getQuote: async () => {
     try {
-      const res = await axiosInstance.get("/getQuotes");
-      if (res.data.success) {
+      set({ isFetchingQuotes: true });
+      const res = await axiosInstance.get("/");
+      if (res?.data?.success) {
         set({ quotes: res.data.quotes });
+        toast.success("명언 불러오기 성공 ❤️");
       }
-    } catch (error) {}
+
+      return { success: true, message: "명언 불러오기 성공" };
+    } catch (error) {
+      set({ isFetchingQuotes: true });
+      console.error(
+        "Failed to get the quotes",
+        error?.response?.data?.message || "알수없는 오류"
+      );
+      toast.error(`명언 불러오기 실패 ${error?.response?.data?.message}`);
+      return {
+        success: false,
+        message: `명언 불러오기 실패 ${error?.response?.data?.message}`,
+      };
+    } finally {
+      set({ isFetchingQuotes: false });
+    }
   },
 }));
