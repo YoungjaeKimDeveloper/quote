@@ -27,7 +27,6 @@ const CategoryButton = ({
       onClick={() => {
         // setCategory(text);
 
-        console.log(setNewQuote);
         setNewQuote((prev) => ({ ...prev, category: text }));
       }}
     >

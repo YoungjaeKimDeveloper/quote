@@ -5,6 +5,8 @@ import { Routes, Route } from "react-router-dom";
 // Pages
 import HomePage from "./Pages/HomePage";
 import CreatePage from "./Pages/CreatePage";
+import Footer from "./components/Footer";
+import NoPage from "./Pages/NoPage";
 
 const App = () => {
   return (
@@ -14,8 +16,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/create" element={<CreatePage />} />
+          <Route path="*" element={<NoPage />} />
         </Routes>
       </div>
+      <Footer />
       <Toaster />
     </div>
   );

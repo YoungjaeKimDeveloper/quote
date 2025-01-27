@@ -3,22 +3,28 @@ import { Link } from "react-router-dom";
 import { SquarePlus, House } from "lucide-react";
 const Header = ({ text }) => {
   return (
-    <div className="bg-black text-white text-sm lg:text-2xl py-4 w-full h-[60px] flex items-center justify-evenly shadow-2xl text-center ">
+    <header className="bg-black text-white text-sm lg:text-2xl py-4 w-full h-[60px] flex items-center justify-evenly shadow-2xl text-center ">
       <div className="w-[60px]"></div>
       <Link to={"/"}>
-        <h2 className="font-bold tracking-wider text-2xl text-center font-serif">
-          {text}
-        </h2>
+        <h1 className="font-bold tracking-wider text-2xl text-center font-serif">
+          오늘의 명언
+        </h1>
       </Link>
-      <div className="flex gap-x-4 mr-2">
-        <Link to={"/"}>
-          <House className="hover:stroke-red-200 duration-500 cursor-pointer" />
-        </Link>
-        <Link to={"/create"}>
-          <SquarePlus className="hover:stroke-yellow-200 duration-500 cursor-pointer" />
-        </Link>
-      </div>
-    </div>
+      <nav>
+        <ul className="flex gap-x-4 mr-2">
+          <li>
+            <Link to={"/"} aria-label="홈">
+              <House className="hover:stroke-red-200 duration-500 cursor-pointer" />
+            </Link>
+          </li>
+          <li>
+            <Link to={"/create"} aria-label="명언 생성">
+              <SquarePlus className="hover:stroke-yellow-200 duration-500 cursor-pointer" />
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
 };
 

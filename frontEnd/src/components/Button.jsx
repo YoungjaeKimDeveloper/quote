@@ -5,12 +5,9 @@ const Button = ({
   text,
   style,
   selectedCategory,
-  setCategory,
   quotes,
   currentIndex,
-  setPickedCategory,
-  pickedCategory,
-  setNewQuote,
+  handleCategoryChange,
 }) => {
   const { getQuotesByCategory } = useQuoteStore();
   return (
@@ -25,11 +22,7 @@ const Button = ({
           : "opacity-50 "
       }`}
       onClick={() => {
-        // setCategory(text);
-        // setPickedCategory(text);
-        console.log(setNewQuote);
-        getQuotesByCategory(text);
-        // setNewQuote((prev) => ({ ...prev, category: text }));
+        handleCategoryChange(text);
       }}
     >
       {text}

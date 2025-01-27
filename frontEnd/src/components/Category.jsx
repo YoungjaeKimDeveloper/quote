@@ -7,6 +7,8 @@ const Category = ({
   quotes,
   currentIndex,
   setNewQuote,
+  handleCategoryChange,
+  isCategoryImageLoading,
 }) => {
   const [pickedCategory, setPickedCategory] = useState("");
   return (
@@ -21,6 +23,7 @@ const Category = ({
         setPickedCategory={setPickedCategory}
         pickedCategory={pickedCategory}
         setNewQuote={setNewQuote}
+        handleCategoryChange={handleCategoryChange}
       />
       <Button
         text={"사랑"}
@@ -32,6 +35,7 @@ const Category = ({
         setPickedCategory={setPickedCategory}
         pickedCategory={pickedCategory}
         setNewQuote={setNewQuote}
+        handleCategoryChange={handleCategoryChange}
       />
       <Button
         text={"삶"}
@@ -43,6 +47,7 @@ const Category = ({
         setPickedCategory={setPickedCategory}
         pickedCategory={pickedCategory}
         setNewQuote={setNewQuote}
+        handleCategoryChange={handleCategoryChange}
       />
       <Button
         text={"공부"}
@@ -54,6 +59,7 @@ const Category = ({
         setPickedCategory={setPickedCategory}
         pickedCategory={pickedCategory}
         setNewQuote={setNewQuote}
+        handleCategoryChange={handleCategoryChange}
       />
     </div>
   );

@@ -69,11 +69,9 @@ export const useQuoteStore = create((set, get) => ({
   },
 
   getQuotesByCategory: async (category) => {
-    console.log("Functioned Called", category);
-    console.log(get().quotes);
     try {
       const res = await axiosInstance.get(`/getQuote/${category}`);
-      console.log(res);
+
       if (res?.data?.success) {
         set({ quotes: [...res?.data?.quotes] });
 

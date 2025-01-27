@@ -14,7 +14,7 @@ const CreatePage = () => {
   const handleCreateNewquote = async (e) => {
     e.preventDefault();
     if (newQuote.author.length < 2 || newQuote.author.length > 11) {
-      setErrorMessage("제작자 이름은 최소 2글자 최대 10글자로 작성해주세요 ❤️");
+      setErrorMessage("작가 이름은 최소 2글자 최대 10글자로 작성해주세요 ❤️");
       return;
     }
     if (newQuote.content.length < 5 || newQuote.content.length > 51) {
@@ -40,7 +40,7 @@ const CreatePage = () => {
     setErrorMessage(""); // 에러메세지 초기화
     setTimeout(() => {
       navigate("/");
-    }, [2000]);
+    }, [1500]);
   };
   // Quote 생성기
   const [newQuote, setNewQuote] = useState({
@@ -61,6 +61,23 @@ const CreatePage = () => {
   const handleImageChange = (event) => {
     const file = event.target.files[0]; //맨 마지막 파일 읽기
     if (file) {
+      const MAX_FILE_SIZE = 5 * 1024 * 1024; // 최대 5MB로 설정해주기
+      // 허용 가능한 이미지 파일만 넣어주기
+      const validImageTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/gif",
+        "image/webp",
+      ];
+
+      if (file.size > MAX_FILE_SIZE) {
+        setErrorMessage("파일 크기는 5mb 이하로 업로드해주세요 ❗️");
+        return;
+      }
+      if (!validImageTypes.includes(file.type)) {
+        setErrorMessage("이미지 파일을 업로드 해주세요  ✅ (jpeg, png, gif) ");
+        return;
+      }
       const reader = new FileReader(); // 파일 리더기 객체
       reader.onloadend = () => {
         // 이미지 URL 저장
@@ -72,7 +89,6 @@ const CreatePage = () => {
       reader.readAsDataURL(file); // 파일을 data URL (base64 문자열로 읽기)
     }
   };
-  console.log(newQuote, "뉴쿼트");
   const navigate = useNavigate();
   return (
     <div className=" mt-10 lg:mt-30">
@@ -98,7 +114,7 @@ const CreatePage = () => {
           {newQuote.image ? (
             <img
               src={newQuote.image}
-              alt="Preview"
+              alt="명언이미지"
               className="mt-4 w-32 h-32 object-cover rounded-2xl"
             />
           ) : (
@@ -117,9 +133,7 @@ const CreatePage = () => {
 
         <p className="fon,t-bold text-black ">
           {errorMessage && (
-            <p>
-              <span className="font-bold">메세지</span>: {errorMessage}
-            </p>
+            <span className="font-bold text-sm">{errorMessage}</span>
           )}
         </p>
         {/* <p>{createQuote_Error_message && Hello}</p> */}
