@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import Button from "./Button";
 
-const Category = ({ selectedCategory, setCategory, quotes, currentIndex }) => {
+const Category = ({
+  selectedCategory,
+  setCategory,
+  quotes,
+  currentIndex,
+  setNewQuote,
+}) => {
   const [pickedCategory, setPickedCategory] = useState("");
   return (
     <div className="bg-[#CFC0C0] flex w-[350px] h-[100px] rounded-xl justify-around items-center mt-[20px] shadow-2xl p-4">
@@ -14,6 +20,7 @@ const Category = ({ selectedCategory, setCategory, quotes, currentIndex }) => {
         currentIndex={currentIndex}
         setPickedCategory={setPickedCategory}
         pickedCategory={pickedCategory}
+        setNewQuote={setNewQuote}
       />
       <Button
         text={"사랑"}
@@ -24,6 +31,7 @@ const Category = ({ selectedCategory, setCategory, quotes, currentIndex }) => {
         currentIndex={currentIndex}
         setPickedCategory={setPickedCategory}
         pickedCategory={pickedCategory}
+        setNewQuote={setNewQuote}
       />
       <Button
         text={"삶"}
@@ -34,6 +42,7 @@ const Category = ({ selectedCategory, setCategory, quotes, currentIndex }) => {
         currentIndex={currentIndex}
         setPickedCategory={setPickedCategory}
         pickedCategory={pickedCategory}
+        setNewQuote={setNewQuote}
       />
       <Button
         text={"공부"}
@@ -44,6 +53,7 @@ const Category = ({ selectedCategory, setCategory, quotes, currentIndex }) => {
         currentIndex={currentIndex}
         setPickedCategory={setPickedCategory}
         pickedCategory={pickedCategory}
+        setNewQuote={setNewQuote}
       />
     </div>
   );

@@ -23,6 +23,6 @@ router.get("/", getQuotes);
 // 개별로 갖다주기
 router.get("/:id", getSingleQuote);
 // // 카테고리 별로 Quote 갖다주기
-router.get("/getQuote/category/:category", getQuoteByCategory);
+router.get("/getQuote/:category", getQuoteByCategory);
 // 작자 별로 갖다주기
 router.get("/getQuote/author/:author", getQuoteByAuthor);

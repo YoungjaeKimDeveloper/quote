@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import axiosInstance from "../lib/axiosInstance";
 import toast from "react-hot-toast";
-export const useQuoteStore = create((set) => ({
+export const useQuoteStore = create((set, get) => ({
   // State
   quotes: [],
   // State - ErrorMessage
@@ -49,7 +49,6 @@ export const useQuoteStore = create((set) => ({
       const res = await axiosInstance.get("/");
       if (res?.data?.success) {
         set({ quotes: res.data.quotes });
-        toast.success("명언 불러오기 성공 ❤️");
       }
 
       return { success: true, message: "명언 불러오기 성공" };
@@ -66,6 +65,30 @@ export const useQuoteStore = create((set) => ({
       };
     } finally {
       set({ isFetchingQuotes: false });
+    }
+  },
+
+  getQuotesByCategory: async (category) => {
+    console.log("Functioned Called", category);
+    console.log(get().quotes);
+    try {
+      const res = await axiosInstance.get(`/getQuote/${category}`);
+      console.log(res);
+      if (res?.data?.success) {
+        set({ quotes: [...res?.data?.quotes] });
+
+        return {
+          success: true,
+          message: "Fetched the category successfully ✅",
+        };
+      }
+    } catch (error) {
+      console.error(`ERROR IN [getQuotesByCategory] ${error.message}`);
+      toast.error(error?.response?.data?.message || "예상치 못한 에러!");
+      return {
+        success: false,
+        message: "Failed to fetch the Quotes by Category",
+      };
     }
   },
 }));

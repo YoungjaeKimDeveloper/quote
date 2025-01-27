@@ -61,6 +61,7 @@ export const updateQuote = async (req, res) => {
     });
   }
 };
+
 export const deleteQuote = async (req, res) => {
   try {
     const quoteID = req.params.quoteID;
@@ -131,7 +132,9 @@ export const getSingleQuote = async (req, res) => {
 export const getQuoteByCategory = async (req, res) => {
   try {
     const category = req.params.category;
-    const quotes = await Quote.find({ category: category });
+    console.log(category, "키테고리");
+    const quotes = await Quote.find({ category: category }).lean();
+    console.log("Quotes", quotes);
     if (!quotes) {
       return res.status(404).jons({
         success: false,

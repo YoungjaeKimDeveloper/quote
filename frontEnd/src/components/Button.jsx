@@ -1,4 +1,5 @@
 import React from "react";
+import { useQuoteStore } from "../../store/quote.store";
 
 const Button = ({
   text,
@@ -9,7 +10,9 @@ const Button = ({
   currentIndex,
   setPickedCategory,
   pickedCategory,
+  setNewQuote,
 }) => {
+  const { getQuotesByCategory } = useQuoteStore();
   return (
     <button
       style={{ backgroundColor: style }}
@@ -22,8 +25,11 @@ const Button = ({
           : "opacity-50 "
       }`}
       onClick={() => {
-        setCategory(text);
-        setPickedCategory(text);
+        // setCategory(text);
+        // setPickedCategory(text);
+        console.log(setNewQuote);
+        getQuotesByCategory(text);
+        setNewQuote((prev) => ({ ...prev, category: text }));
       }}
     >
       {text}

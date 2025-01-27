@@ -41,6 +41,7 @@ const CreatePage = () => {
       navigate("/");
     }, [2000]);
   };
+  // Quote 생성기
   const [newQuote, setNewQuote] = useState({
     author: "",
     content: "",
@@ -70,6 +71,7 @@ const CreatePage = () => {
       reader.readAsDataURL(file); // 파일을 data URL (base64 문자열로 읽기)
     }
   };
+  console.log(newQuote, "뉴쿼트");
   const navigate = useNavigate();
   return (
     <div className=" mt-10 lg:mt-30">
@@ -108,6 +110,7 @@ const CreatePage = () => {
 
         <Category
           selectedCategory={newQuote.category}
+          setNewQuote={setNewQuote}
           setCategory={(category) => handleInputChange("category", category)}
         />
 
