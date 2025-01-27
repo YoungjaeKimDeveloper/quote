@@ -94,7 +94,7 @@ export const deleteQuote = async (req, res) => {
 
 export const getQuotes = async (req, res) => {
   try {
-    const quotes = await Quote.find({});
+    const quotes = await Quote.find({}).lean();
     if (!quotes) {
       return res
         .status(404)
@@ -132,9 +132,9 @@ export const getSingleQuote = async (req, res) => {
 export const getQuoteByCategory = async (req, res) => {
   try {
     const category = req.params.category;
-    console.log(category, "키테고리");
+
     const quotes = await Quote.find({ category: category }).lean();
-    console.log("Quotes", quotes);
+
     if (!quotes) {
       return res.status(404).jons({
         success: false,
