@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuoteStore } from "../../store/quote.store";
 
-const Button = ({
+const CategoryButton = ({
   text,
   style,
   selectedCategory,
@@ -26,10 +26,9 @@ const Button = ({
       }`}
       onClick={() => {
         // setCategory(text);
-        // setPickedCategory(text);
+
         console.log(setNewQuote);
-        getQuotesByCategory(text);
-        // setNewQuote((prev) => ({ ...prev, category: text }));
+        setNewQuote((prev) => ({ ...prev, category: text }));
       }}
     >
       {text}
@@ -37,4 +36,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default CategoryButton;

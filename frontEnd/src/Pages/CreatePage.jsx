@@ -5,6 +5,7 @@ import Category from "../components/Category";
 import { useQuoteStore } from "../../store/quote.store";
 import { LoaderCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import CreateCategory from "../components/CreateCategory";
 
 const CreatePage = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -108,7 +109,7 @@ const CreatePage = () => {
           )}
         </label>
 
-        <Category
+        <CreateCategory
           selectedCategory={newQuote.category}
           setNewQuote={setNewQuote}
           setCategory={(category) => handleInputChange("category", category)}
