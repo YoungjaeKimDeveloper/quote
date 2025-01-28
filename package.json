@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./backEnd/server.js"
+    "build": "npm install && npm install --prefix frontEnd && npm run build --prefix frontEnd",
+    "start": "NODE_ENV = production node ./backEnd/server.js"
   },
   "keywords": [],
   "author": "",
