@@ -1,12 +1,12 @@
 {
   "name": "quote",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./backEnd/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm install && npm install --prefix frontEnd && npm run build --prefix frontEnd",
-    "start": "NODE_ENV = production node ./backEnd/server.js"
+    "start": "NODE_ENV = production node ./backEnd/index.js"
   },
   "keywords": [],
   "author": "",
