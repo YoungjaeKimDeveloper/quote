@@ -56,7 +56,7 @@ export const useQuoteStore = create((set, get) => ({
       set({ isFetchingQuotes: true });
       console.error(
         "Failed to get the quotes",
-        error?.response?.data?.message || "알수없는 오류"
+        error?.response?.data?.message || ""
       );
       toast.error(`명언 불러오기 실패 ${error?.response?.data?.message}`);
       return {
