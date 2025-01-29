@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json({ limit: "6 mb" }));
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://quote-qj53.onrender.com"],
+    origin: "*",
     credentials: true,
   })
 );
