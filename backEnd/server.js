@@ -19,7 +19,7 @@ app.use(
   })
 );
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT | 5005;
 const __dirname = path.resolve();
 
 app.use("/quote", quoteRoutes);
