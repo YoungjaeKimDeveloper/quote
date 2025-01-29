@@ -11,7 +11,12 @@ const app = express();
 // 미들웨어 설정해주기
 
 app.use(express.json({ limit: "6 mb" }));
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://quote-qj53.onrender.com/"],
+    credentials: true,
+  })
+);
 
 dotenv.config();
 
