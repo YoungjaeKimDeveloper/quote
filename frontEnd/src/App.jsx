@@ -12,7 +12,7 @@ const App = () => {
   return (
     <div>
       <Header text="오늘의 명언" />
-      <div className="bg-gradient-to-r from-white-500  to-red-500 w-full min-h-screen max-h-full flex flex-col items-center ">
+      <div className="bg-gradient-to-r from-white  to-red-500 w-full min-h-screen max-h-full flex flex-col items-center ">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/create" element={<CreatePage />} />
