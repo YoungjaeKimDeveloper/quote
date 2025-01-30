@@ -12,9 +12,20 @@ const app = express();
 // 미들웨어 설정해주기
 
 app.use(express.json({ limit: "6 mb" }));
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; script-src 'self';"
+  );
+  next();
+});
+
 app.use(
   cors({
-    origin: "*",
+    origin: [
+      "https://todayquote4u.com", // 네임칩 도메인
+      "https://www.todayquote4u.com",
+    ], // www 서브도메인도 허용],
     credentials: true,
   })
 );
