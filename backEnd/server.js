@@ -18,7 +18,7 @@ app.use(
       directives: {
         defaultSrc: ["'self'"], // 기본적으로 자기 자신('self')에서만 리소스 로드 허용
         scriptSrc: ["'self'"], // 외부 JavaScript 로딩 금지
-        styleSrc: ["'self'", "https://fonts.googleapis.com"], // 구글 폰트 허용
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
         imgSrc: ["'self'", "data:", "https://res.cloudinary.com"], // 데이터 URI 이미지 허용
         connectSrc: ["'self'", "https://api.example.com"], // API 요청 허용
         frameSrc: ["'none'"], // iframe 사용 금지
