@@ -1,8 +1,13 @@
 import axios from "axios";
-import dotenv from "dotenv";
+const getBaseURL = () => {
+  if (window.location.origin.includes("todayquote4u.com")) {
+    return "https://todayquote4u.com/quote";
+  }
+  return "https://quote-qj53.onrender.com/quote"; // 기본 API URL
+};
 
 const axiosInstance = axios.create({
-  baseURL: "https://quote-qj53.onrender.com/quote",
+  baseURL: getBaseURL(),
   withCredentials: true,
 });
 
