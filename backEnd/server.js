@@ -8,6 +8,7 @@ import path from "path";
 
 // 라우터
 // tester
+// tester
 import quoteRoutes from "./routes/quotes.routes.js";
 dotenv.config();
 const app = express();
@@ -21,7 +22,7 @@ app.use(
         scriptSrc: ["'self'"], // 외부 JavaScript 로딩 금지
         styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
         imgSrc: ["'self'", "data:", "https://res.cloudinary.com"], // 데이터 URI 이미지 허용
-        connectSrc: ["'self'", "https://api.example.com"], // API 요청 허용
+        connectSrc: ["'self'"], // API 요청 허용
         frameSrc: ["'none'"], // iframe 사용 금지
         objectSrc: ["'none'"], // 플래시 같은 object 태그 사용 금지
       },
@@ -41,7 +42,7 @@ app.use(
   })
 );
 
-const PORT = process.env.PORT | 5005;
+const PORT = process.env.PORT || 5005;
 const __dirname = path.resolve();
 
 app.use("/quote", quoteRoutes);
